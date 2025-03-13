@@ -1,0 +1,13 @@
+<mvc:View controllerName="com.bootcamp.sapui5.freestyle.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <l:VerticalLayout id="layout" class="sapUiContentPadding" width="100%">
+			<Label id="label" text="{i18n>product}" labelFor="productInput" />
+			<Input id="productInput" placeholder="{i18n>enterProduct}"/>
+			<Button id="btnBuscar" text="{i18n>textBuscar}" press="onPress"/>
+		</l:VerticalLayout>
+    </Page>
+</mvc:View>
