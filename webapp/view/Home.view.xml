@@ -5,9 +5,13 @@
 	xmlns:core="sap.ui.core">
     <Page id="page" title="{i18n>title}">
         <l:VerticalLayout id="layout" class="sapUiContentPadding" width="100%">
-			<Label id="label" text="{i18n>product}" labelFor="productInput" />
-			<Input id="productInput" placeholder="{i18n>enterProduct}"/>
-			<Button id="btnBuscar" text="{i18n>textBuscar}" press="onPress"/>
+			<Label id="label" text="{i18n>holaMundo}" labelFor="productInput" />
+			<Input id="productInput" placeholder="{i18n>enterName}"/>
+			<Button id="btnBuscar" text="{i18n>saludar}" press="showName"/>
 		</l:VerticalLayout>
+		<VBox id="productContainer" class="sapUiSmallMargin">
+			<Text id="products" text="{i18n>product}"/>
+			<Button id="getProducts" text="{i18n>textBuscar}" press="searchProducts"/>
+		</VBox>
     </Page>
 </mvc:View>
