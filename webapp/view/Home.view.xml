@@ -2,19 +2,33 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
-	xmlns:core="sap.ui.core">
+	xmlns:c="sap.ui.core">
     <Page id="page" title="{i18n>title}">
+
         <l:VerticalLayout id="layout" class="sapUiContentPadding" width="100%">
 			<Label id="label" text="{i18n>holaMundo}" labelFor="productInput" />
 			<Input id="productInput" placeholder="{i18n>enterName}"/>
 			<Button id="btnBuscar" text="{i18n>saludar}" press="showName"/>
 		</l:VerticalLayout>
+
 		<VBox id="productContainer" class="sapUiSmallMargin">
 			<Text id="products" text="{i18n>product}"/>
 			<Button id="getProducts" text="{i18n>textBuscar}" press="searchProducts"/>
 		</VBox>
+
 		<List id="productList" items="{/results}">
 			<StandardListItem id="product" title="{ProductName}" description="{UnitPrice}" icon="{image}" />
 		</List>
+
+		<VBox id="tableProducts" class="sapUiSmallMargin">
+			<Text text="{i18n>tableProduct}"/>
+			<Button text="{i18n>textBuscar}" press="tableProducts"/>
+			
+		</VBox>
+		<c:Fragment
+			fragmentName="com.bootcamp.sapui5.freestyle.view.fragments.ProductsTable"
+			type="XML"
+		/>
+
     </Page>
 </mvc:View>

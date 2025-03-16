@@ -25,6 +25,17 @@ sap.ui.define([
                 MessageBox.error("Error al obtener productos.");
                 console.error(error);
             }
+        },
+
+        tableProducts: async function () {
+            try {
+                let oDatos = await HomeHelper.getDataProducts();                
+                await HomeHelper.setProductModel(this, oDatos[0].results)
+            } catch (error) {
+                MessageBox.error("Error al obtener productos para tabla.");
+                console.error(error);
+            }
         }
+
     });
 });

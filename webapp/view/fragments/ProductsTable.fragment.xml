@@ -1,0 +1,39 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+    <Table inset="false" items="{ path : 'ProductCollection>/'}">
+        <columns>
+            <Column >
+                <Text text="{i18n>productName}"></Text>
+            </Column>
+            <Column >
+                <Text text="{i18n>unitPrice}"></Text>
+            </Column>
+            <Column >
+                <Text text="{i18n>unitsInStock}"></Text>
+            </Column>
+            <Column >
+                <Text text="{i18n>quantityPerUnit}"></Text>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                    <ObjectIdentifier 
+                        title="{ProductCollection>ProductID}"
+                        text="{ProductCollection>ProductName}"/>
+                    <ObjectNumber
+                        number="{
+                            parts:[{path:'ProductCollection>UnitPrice'},{path:''}],
+                            type:'sap.ui.model.type.Currency',
+                            formatOptions: {showMeasure: true}
+                        }"
+                        unit="USD"/>
+                    <Text text="{ProductCollection>UnitsInStock}"/>
+                    <Text text="{ProductCollection>QuantityPerUnit}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</c:FragmentDefinition>
