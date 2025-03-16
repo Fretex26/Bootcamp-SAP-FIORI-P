@@ -13,5 +13,8 @@
 			<Text id="products" text="{i18n>product}"/>
 			<Button id="getProducts" text="{i18n>textBuscar}" press="searchProducts"/>
 		</VBox>
+		<List id="productList" items="{/results}">
+			<StandardListItem id="product" title="{ProductName}" description="{UnitPrice}" icon="{image}" />
+		</List>
     </Page>
 </mvc:View>

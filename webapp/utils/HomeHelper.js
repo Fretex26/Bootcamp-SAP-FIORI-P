@@ -1,5 +1,5 @@
 sap.ui.define([
-    "com.bootcamp.sapui5.freestyle.freestyle.webapp.utils.HomeService"
+    "com/bootcamp/sapui5/freestyle/utils/HomeService"
 ], function (HomeService) {
     "use strict";
 
