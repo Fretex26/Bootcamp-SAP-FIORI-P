@@ -2,7 +2,51 @@
     xmlns="sap.m"
 	xmlns:c="sap.ui.core"
 >
-    <Table inset="false" items="{ path : 'ProductCollection>/'}">
+
+    <VBox class="sapUiSmallMargin">
+        <Text text="{i18n>filters}"/>
+        <Toolbar >
+            <Input id="inputId" width="50%" liveChange="onChange" value="{LocalDataModel>/valueInput}"/>
+
+            <ComboBox 
+                id="comboboxID"
+                selectionChange="onSelectionChange"
+                selectedKey="{LocalDataModel>/selectedKey}"
+                items="{
+					path: '/Categories',
+					sorter: { path: 'CategoryName' }
+				}">
+				<c:Item key="{CategoryID}" text="{CategoryName}" />
+            </ComboBox>
+            
+            <MultiInput
+                width="50%"
+                showClearIcon="true"
+                id="multiInput"
+                selectedKey="{LocalDataModel>/selectedKeyMultiInput}"
+                tokenUpdate="onMultiInputChange"
+                suggestionItems="{
+                    path: '/Categories',
+					sorter: { path: 'CategoryName' }
+                }"
+                showValueHelp="false">
+                <c:Item key="{CategoryID}" text="{CategoryName}" />
+            </MultiInput>
+
+            <MultiComboBox
+                width="350px"
+                selectedKeys="{LocalDataModel>/selectedKeyMulti}"
+                items="{
+                    path: '/Suppliers',
+                    sorter: { path: 'CompanyName' }
+                }">
+                <c:Item key="{SupplierID}" text="{CompanyName}"/>
+            </MultiComboBox>
+
+            <Button text="{i18n>textBuscar}" press="onFilter"/>
+        </Toolbar>
+    </VBox>
+    <Table inset="false" id="idProductsTable" items="{ path : '/Products'}">
         <columns>
             <Column >
                 <Text text="{i18n>productName}"></Text>
@@ -21,17 +65,17 @@
             <ColumnListItem vAlign="Middle" type="Active" press="onItemPress">
                 <cells>
                     <ObjectIdentifier 
-                        title="{ProductCollection>ProductID}"
-                        text="{ProductCollection>ProductName}"/>
+                        title="{ProductID}"
+                        text="{ProductName}"/>
                     <ObjectNumber
                         number="{
-                            parts:[{path:'ProductCollection>UnitPrice'},{path:''}],
+                            parts:[{path:'UnitPrice'}],
                             type:'sap.ui.model.type.Currency',
                             formatOptions: {showMeasure: true}
                         }"
                         unit="USD"/>
-                    <Text text="{ProductCollection>UnitsInStock}"/>
-                    <Text text="{ProductCollection>QuantityPerUnit}"/>
+                    <Text text="{UnitsInStock}"/>
+                    <Text text="{QuantityPerUnit}"/>
                 </cells>
             </ColumnListItem>
         </items>

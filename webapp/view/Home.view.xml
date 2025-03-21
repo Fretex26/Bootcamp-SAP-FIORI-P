@@ -23,7 +23,6 @@
 		<VBox id="tableProducts" class="sapUiSmallMargin">
 			<Text text="{i18n>tableProduct}"/>
 			<Button text="{i18n>textBuscar}" press="tableProducts"/>
-			
 		</VBox>
 		<c:Fragment
 			fragmentName="com.bootcamp.sapui5.freestyle.view.fragments.ProductsTable"
