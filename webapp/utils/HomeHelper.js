@@ -30,7 +30,6 @@ sap.ui.define([
                 valueInput:'',
                 selectedKey:'',
                 selectedKeyMulti:[],
-                selectedKeyMultiInput:''
             }), 'LocalDataModel')
         }
     }

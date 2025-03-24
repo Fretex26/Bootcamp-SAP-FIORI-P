@@ -5,43 +5,69 @@
 
     <VBox class="sapUiSmallMargin">
         <Text text="{i18n>filters}"/>
-        <Toolbar >
-            <Input id="inputId" width="50%" liveChange="onChange" value="{LocalDataModel>/valueInput}"/>
+        <Toolbar height="100px">
 
-            <ComboBox 
-                id="comboboxID"
-                selectionChange="onSelectionChange"
-                selectedKey="{LocalDataModel>/selectedKey}"
-                items="{
-					path: '/Categories',
-					sorter: { path: 'CategoryName' }
-				}">
-				<c:Item key="{CategoryID}" text="{CategoryName}" />
-            </ComboBox>
-            
-            <MultiInput
-                width="50%"
-                showClearIcon="true"
-                id="multiInput"
-                selectedKey="{LocalDataModel>/selectedKeyMultiInput}"
-                tokenUpdate="onMultiInputChange"
-                suggestionItems="{
-                    path: '/Categories',
-					sorter: { path: 'CategoryName' }
-                }"
-                showValueHelp="false">
-                <c:Item key="{CategoryID}" text="{CategoryName}" />
-            </MultiInput>
+            <FlexBox direction="Column" alignItems="Start" width="20%">
+                <Label
+                text="{i18n>inputText}"
+                labelFor="input-b"
+                width="100%"
+                design="Bold" />
+                <Input id="inputId" liveChange="onChange" width="100%" value="{LocalDataModel>/valueInput}"/>
+			</FlexBox>
 
-            <MultiComboBox
-                width="350px"
-                selectedKeys="{LocalDataModel>/selectedKeyMulti}"
-                items="{
-                    path: '/Suppliers',
-                    sorter: { path: 'CompanyName' }
-                }">
-                <c:Item key="{SupplierID}" text="{CompanyName}"/>
-            </MultiComboBox>
+            <FlexBox direction="Column" alignItems="Start" width="20%">
+                <Label
+                text="{i18n>selectCategories}"
+                labelFor="input-b"
+                design="Bold" />
+                <ComboBox 
+                    id="comboboxID"
+                    selectionChange="onSelectionChange"
+                    selectedKey="{LocalDataModel>/selectedKey}"
+                    width="100%"
+                    items="{
+                        path: '/Categories',
+                        sorter: { path: 'CategoryName' }
+                    }">
+                    <c:Item key="{CategoryID}" text="{CategoryName}" />
+                </ComboBox>
+			</FlexBox>
+
+            <FlexBox direction="Column" alignItems="Start" width="20%">
+                <Label
+                text="{i18n>categoriesMultiInput}"
+                labelFor="input-b"
+                design="Bold" />
+                <MultiInput
+                    showClearIcon="true"
+                    id="multiInput"
+                    tokenUpdate="onMultiInputChange"
+                    width="100%"
+                    suggestionItems="{
+                        path: '/Categories',
+                        sorter: { path: 'CategoryName' }
+                    }"
+                    showValueHelp="false">
+                    <c:Item key="{CategoryID}" text="{CategoryName}" />
+                </MultiInput>
+			</FlexBox>
+
+            <FlexBox direction="Column" alignItems="Start" width="20%">
+                <Label
+                text="{i18n>providers}"
+                labelFor="input-b"
+                design="Bold" />
+                <MultiComboBox
+                    selectedKeys="{LocalDataModel>/selectedKeyMulti}"
+                    width="100%"
+                    items="{
+                        path: '/Suppliers',
+                        sorter: { path: 'CompanyName' }
+                    }">
+                    <c:Item key="{SupplierID}" text="{CompanyName}"/>
+                </MultiComboBox>
+			</FlexBox>
 
             <Button text="{i18n>textBuscar}" press="onFilter"/>
         </Toolbar>
